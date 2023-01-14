@@ -1,2 +1,2 @@
-# unity-2D-git
-project
+# unity-2D 횡스크롤 로그라이크 제작
+
