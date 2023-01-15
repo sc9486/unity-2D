@@ -58,9 +58,13 @@ public class PlayerController : MonoBehaviour
                 curTime = coolTime;
             }
         }
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetMouseButton(0))
         {
-            animator.SetTrigger("attack");
+            animator.SetBool("attack", true);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            animator.SetBool("attack", false);
         }
         else
         {
