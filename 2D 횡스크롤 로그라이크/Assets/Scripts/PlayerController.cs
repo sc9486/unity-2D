@@ -50,14 +50,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector2.up * Time.deltaTime * jump_speed);
         }
-        if (curTime <= 0)
-        {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                animator.SetTrigger("atk");
-                curTime = coolTime;
-            }
-        }
         if (Input.GetMouseButton(0))
         {
             animator.SetBool("attack", true);
