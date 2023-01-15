@@ -58,6 +58,14 @@ public class PlayerController : MonoBehaviour
                 curTime = coolTime;
             }
         }
+        if (Input.GetMouseButton(0))
+        {
+            animator.SetBool("attack", true);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            animator.SetBool("attack", false);
+        }
         else
         {
             curTime -= Time.deltaTime;
