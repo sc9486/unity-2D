@@ -58,6 +58,10 @@ public class PlayerController : MonoBehaviour
                 curTime = coolTime;
             }
         }
+        if (Input.GetKey(KeyCode.P))
+        {
+            animator.SetTrigger("attack");
+        }
         else
         {
             curTime -= Time.deltaTime;
