@@ -25,9 +25,6 @@ public class PlayerController : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
     }
 
-    private float curTime;
-    public float coolTime = 0.5f;
-
     void Update()
     {
 
@@ -50,25 +47,9 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(Vector2.up * Time.deltaTime * jump_speed);
         }
-        if (curTime <= 0)
+        if (Input.GetMouseButton(0) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                animator.SetTrigger("atk");
-                curTime = coolTime;
-            }
-        }
-        if (Input.GetMouseButton(0))
-        {
-            animator.SetBool("attack", true);
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            animator.SetBool("attack", false);
-        }
-        else
-        {
-            curTime -= Time.deltaTime;
+            animator.SetTrigger("attack");
         }
     }
 }
