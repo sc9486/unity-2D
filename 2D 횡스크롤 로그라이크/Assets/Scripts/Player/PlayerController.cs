@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     SpriteRenderer rend;
     Animator animator;
+    UnitMgr unitMgr;
     Rigidbody2D myrigidbody;
 
     [SerializeField]
-    float _speed = 10.0f;
-    float jump_speed = 10.0f;
+    float _speed = 5.0f;
 
     void Start()
     { 
@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         myrigidbody = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        unitMgr = GetComponent<UnitMgr>();
+        animator = unitMgr.animator;
     }
 
     void Update()
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void OnKeyboard()
     {
+        if (unitMgr.died) return;
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -38,13 +41,10 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * _speed);
             rend.flipX = false;
         }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            transform.Translate(Vector2.up * Time.deltaTime * jump_speed);
-        }
         if (Input.GetMouseButton(0) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             animator.SetTrigger("attack");
+            SFXManager.Instance.PlaySound(SFXManager.Instance.playerAttack);
         }
     }
 }
