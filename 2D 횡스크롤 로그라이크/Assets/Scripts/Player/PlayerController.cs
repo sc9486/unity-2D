@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     float _speed = 10.0f;
-    float jump_speed = 20.0f;
+    float jump_speed = 10.0f;
 
     void Start()
     { 
