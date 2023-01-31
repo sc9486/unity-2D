@@ -1,23 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// 1. 위치 벡터
-// 2. 방향 벡터
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public int maxHp;
+    public int nowHp;
+    public int atkDmg;
+    public bool attacked = false;
+    public Image nowHpbar;
+
+    void AttackTrue()
+    {
+        attacked = true;
+    }
+    void AttackFalse()
+    {
+        attacked = false;
+    }
+
     SpriteRenderer rend;
     Animator animator;
     Rigidbody2D myrigidbody;
 
     [SerializeField]
-    float _speed = 40.0f;
-    float jump_speed = 150f;
+    float _speed = 10.0f;
+    float jump_speed = 50f;
 
 
     void Start()
     {
+        maxHp = 50;
+        nowHp = 50;
+        atkDmg = 10;
+
         Managers.Input.KeyAction -= OnKeyboard; // 어떠한 키가 눌리면 함수 실행
         Managers.Input.KeyAction += OnKeyboard;
         animator = GetComponent<Animator>();
@@ -27,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
     }
 
     void OnKeyboard()
