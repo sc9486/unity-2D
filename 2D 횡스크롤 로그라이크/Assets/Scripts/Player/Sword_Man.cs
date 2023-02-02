@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class Sword_Man : MonoBehaviour
 {
+    [SerializeField]
+    float _speed = 10.0f;
+
     public bool attacked = false;
+    public bool sting = false;
+
     public Image nowHpbar;
     public float jumpPower = 45;
 
@@ -46,15 +51,12 @@ public class Sword_Man : MonoBehaviour
         {
             inputRight = true;
             transform.localScale = new Vector3(-1, 1, 1);
-            animator.SetBool("moving", true);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             inputLeft = true;
             transform.localScale = new Vector3(1, 1, 1);
-            animator.SetBool("moving", true);
         }
-        else animator.SetBool("moving", false);
 
         if (Input.GetKey(KeyCode.A) &&
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
@@ -62,6 +64,21 @@ public class Sword_Man : MonoBehaviour
             animator.SetTrigger("attack");
             SFXManager.Instance.PlaySound(SFXManager.Instance.playerAttack);
         }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.position += Vector3.left * Time.deltaTime * _speed;
+            animator.SetBool("moving", true);
+        }
+
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.position += Vector3.right * Time.deltaTime * _speed;
+            animator.SetBool("moving", true);
+        }
+        else animator.SetBool("moving", false);
 
         if (Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("jumping"))
         {
@@ -118,6 +135,10 @@ public class Sword_Man : MonoBehaviour
     void AttackFalse()
     {
         attacked = false;
+    }
+    void StingTrue()
+    {
+        sting = true;
     }
     public void SetAttackSpeed(float speed)
     {

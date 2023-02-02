@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    float _speed = 10.0f;
+
     public GameObject prfHpBar;
     public GameObject canvas;
     RectTransform hpBar;
@@ -43,6 +46,15 @@ public class Enemy : MonoBehaviour
             {
                 status.nowHp -= sword_man.status.atkDmg;
                 sword_man.attacked = false;
+                if (status.nowHp <= 0) // 적 사망
+                {
+                    Die();
+                }
+            }
+            if (sword_man.sting)
+            {
+                status.nowHp -= sword_man.status.atkDmg * 5;
+                sword_man.sting = false;
                 if (status.nowHp <= 0) // 적 사망
                 {
                     Die();
