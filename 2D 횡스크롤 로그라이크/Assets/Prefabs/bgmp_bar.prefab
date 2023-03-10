@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1908328006374878913}
   - component: {fileID: 1908328006374878912}
   m_Layer: 5
-  m_Name: hp_bar
+  m_Name: mp_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7a4374f35d3fbdc4aa54782ecddf7c87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 421732dc7e84ecb47916c162d5bef7c8, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1908328006773766706}
   - component: {fileID: 1908328006773766705}
   m_Layer: 5
-  m_Name: HpBar
+  m_Name: bgmp_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95, y: -20}
+  m_AnchoredPosition: {x: 95, y: -50}
   m_SizeDelta: {x: 150, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1908328006773766706
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1243ad40190f95541bb0dc3c14b08aed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0396e5375e0e24b47b1ca290678a15a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
