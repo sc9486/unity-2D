@@ -375,7 +375,7 @@ public class Berserker : PlayerController
         GameObject tmpobj = Instantiate(Skill2Prefab, transform.position, Quaternion.identity);
         tmpobj.transform.localScale = new Vector3(-1*transform.localScale.x, 1, 1);
         tmpobj.transform.SetParent(this.transform);
-        tmpobj.transform.localPosition= new Vector3(-1.37f, 0.179f, 1);
+        tmpobj.transform.localPosition= new Vector3(-1.37f, -0.179f, 1);
         //Debug.Log("transform.localScale.x:" + transform.localScale.x);
 
 
