@@ -28,7 +28,6 @@ public class weaponColliderEventSender : MonoBehaviour
 
 
     public PlayerController m_PlayerRoot;
-    public Mon_Bass m_MonsterRoot;
     public AttackState m_AttackState = AttackState.Default;
 
     public List<GameObject> HittedObjectList = new List<GameObject>();
@@ -39,8 +38,7 @@ public class weaponColliderEventSender : MonoBehaviour
 
         switch (CharacterType)
         {
-            case Type.Mons:
-                m_MonsterRoot = this.transform.root.transform.GetComponent<Mon_Bass>();        
+            case Type.Mons:      
                 break;
             case Type.Player:
                 m_PlayerRoot = this.transform.root.transform.GetComponent<PlayerController>();
@@ -85,21 +83,7 @@ public class weaponColliderEventSender : MonoBehaviour
 
                 switch (m_AttackState)
                 {
-                    case AttackState.Default:
-                        m_MonsterRoot.DefaulAttack_Collider(other.gameObject);
-                        break;
-                    case AttackState.Skill1:
-                        m_MonsterRoot.Skill_1Attack_Collider(other.gameObject);
-                        break;
-                    case AttackState.Skill2:
-                        m_MonsterRoot.Skill_2Attack_Collider(other.gameObject);
-                        break;
-                    case AttackState.Skill3:
-                        m_MonsterRoot.Skill_3Attack_Collider(other.gameObject);
-                        break;
-                    case AttackState.Skill4:
-                        m_MonsterRoot.Skill_4Attack_Collider(other.gameObject);
-                        break;
+              
 
                 }
 

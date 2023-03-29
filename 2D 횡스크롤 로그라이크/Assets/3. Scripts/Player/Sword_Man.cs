@@ -80,6 +80,12 @@ public class Sword_Man : MonoBehaviour
         }
         else animator.SetBool("moving", false);
 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            animator.Play("Demo_Skill_2");
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("jumping"))
         {
             inputJump = true;

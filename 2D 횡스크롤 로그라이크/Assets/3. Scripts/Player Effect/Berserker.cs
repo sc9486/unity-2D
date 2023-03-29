@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class Berserker : PlayerController
 {
+    public Status status;
 
- 
 
     private void Start()
     {
+        transform.position = new Vector3(0, 0, 0);
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
+
+        status = new Status();
+        status = status.SetUnitStatus(UnitCode.swordman);
+
     }
 
 
@@ -131,11 +136,6 @@ public class Berserker : PlayerController
                 }
             }
         }
-
-
-       
-
-  
 
         // 기타 이동 인풋.
 
@@ -260,30 +260,14 @@ public class Berserker : PlayerController
     public override void DefaulAttack_Collider(GameObject obj) {
 
 
-        if (obj.CompareTag("Monster"))
-        {
 
-
-            Mon_Bass tmp_Player = obj.transform.root.GetComponent<Mon_Bass>();
-            Vector2 dir = new Vector2(0, 0);
-            tmp_Player.Damaged(10, dir, 0.1f);
-         
-        }
 
 
     }
 
     public override void Skill_2Attack_Collider(GameObject obj) {
 
-        if (obj.CompareTag("Monster"))
-        {
-
-
-            Mon_Bass tmp_Player = obj.transform.root.GetComponent<Mon_Bass>();
-            Vector2 dir = new Vector2(0, 0);
-            tmp_Player.Damaged(20, dir, 0.1f);
-
-        }
+   
 
     }
     public override void Skill_3Attack_Collider(GameObject obj) {
@@ -333,4 +317,5 @@ public class Berserker : PlayerController
     {
         Instantiate(BloodPrefab, this.transform.localPosition, Quaternion.identity);       
     }
+
 }

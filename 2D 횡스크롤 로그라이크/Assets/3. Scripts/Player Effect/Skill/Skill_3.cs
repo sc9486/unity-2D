@@ -38,7 +38,6 @@ public class Skill_3 : MonoBehaviour
         if (other.CompareTag("Monster"))
         {
             Debug.Log("other::" + other.gameObject.transform.root);
-            other.gameObject.transform.root.GetComponent<Mon_Bass>().Damaged(Damage, Vector2.zero, 0.1f);
         }
     }
 }
