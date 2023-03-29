@@ -70,7 +70,7 @@ public class EnemyAI : MonoBehaviour
     void AttackTarget()
     {
         print("공격");
-        target.GetComponent<Sword_Man>().status.nowHp -= enemy.status.atkDmg;
+        target.GetComponent<Player>().status.nowHp -= enemy.status.atkDmg;
         enemyAnimator.SetTrigger("attack");
         attackDelay = enemy.status.atkSpeed; // 딜레이 충전
     }

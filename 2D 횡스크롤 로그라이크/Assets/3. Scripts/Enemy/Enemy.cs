@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     RectTransform hpBar;
     public float height = 1.7f;
 
-    public Sword_Man sword_man;
+    public Player player;
     Image nowHpbar;
     public Animator enemyAnimator;
 
@@ -42,19 +42,19 @@ public class Enemy : MonoBehaviour
     {
         if (col.CompareTag("Weapon"))
         {
-            if (sword_man.attacked)
+            if (player.attacked)
             {
-                status.nowHp -= sword_man.status.atkDmg;
-                sword_man.attacked = false;
+                status.nowHp -= player.status.atkDmg;
+                player.attacked = false;
                 if (status.nowHp <= 0) // 적 사망
                 {
                     Die();
                 }
             }
-            if (sword_man.sting)
+            if (player.sting)
             {
-                status.nowHp -= sword_man.status.atkDmg * 5;
-                sword_man.sting = false;
+                status.nowHp -= player.status.atkDmg * 5;
+                player.sting = false;
                 if (status.nowHp <= 0) // 적 사망
                 {
                     Die();

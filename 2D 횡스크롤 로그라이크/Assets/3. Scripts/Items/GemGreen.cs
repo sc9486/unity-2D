@@ -9,22 +9,22 @@ public class GemGreen : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            Sword_Man swordMan = col.GetComponent<Sword_Man>();
-            StartCoroutine(IncreaseAttackSpeed(swordMan));
+            Player player = col.GetComponent<Player>();
+            StartCoroutine(IncreaseAttackSpeed(player));
 
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
         }
     }
 
-    IEnumerator IncreaseAttackSpeed(Sword_Man swordMan)
+    IEnumerator IncreaseAttackSpeed(Player player)
     {
-        float attackSpeed = swordMan.GetAttackSpeed();
-        swordMan.SetAttackSpeed(attackSpeed * 1.5f);
+        float attackSpeed = player.GetAttackSpeed();
+        player.SetAttackSpeed(attackSpeed * 1.5f);
 
         yield return new WaitForSeconds(10);
 
-        swordMan.SetAttackSpeed(attackSpeed);
+        player.SetAttackSpeed(attackSpeed);
         Destroy(gameObject);
     }
 }

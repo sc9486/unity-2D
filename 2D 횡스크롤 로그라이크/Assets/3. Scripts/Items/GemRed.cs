@@ -7,12 +7,12 @@ public class GemRed : MonoBehaviour
     // 체력 50 회복
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("player"))
         {
-            Sword_Man swordMan = col.GetComponent<Sword_Man>();
-            swordMan.status.nowHp += 50;
-            if (swordMan.status.nowHp > swordMan.status.maxHp) 
-                swordMan.status.nowHp = swordMan.status.maxHp;
+            Player player = col.GetComponent<Player>();
+            player.status.nowHp += 50;
+            if (player.status.nowHp > player.status.maxHp) 
+                player.status.nowHp = player.status.maxHp;
             Destroy(gameObject);
         }
     }

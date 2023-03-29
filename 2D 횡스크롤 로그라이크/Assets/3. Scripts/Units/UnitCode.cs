@@ -1,6 +1,6 @@
 public enum UnitCode 
 {
-    swordman,
+    player,
     enemy1,
     enemy2,
 }

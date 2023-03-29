@@ -8,9 +8,9 @@ public class Thorns : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            Sword_Man swordMan = col.GetComponent<Sword_Man>();
-            swordMan.status.nowHp -= 10;
-            if (swordMan.status.nowHp < 0) swordMan.status.nowHp = 0;
+            Player player = col.GetComponent<Player>();
+            player.status.nowHp -= 10;
+            if (player.status.nowHp < 0) player.status.nowHp = 0;
         }
     }
 }

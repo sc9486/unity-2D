@@ -33,8 +33,8 @@ public class Status
 
         switch (unitCode)
         {
-            case UnitCode.swordman:
-                status = new Status(unitCode, "¼Òµå¸Ç", 50, 10, 1f, 8f, 0, 0);
+            case UnitCode.player:
+                status = new Status(unitCode, "Player", 500, 10, 1f, 8f, 0, 0);
                 break;
             case UnitCode.enemy1:
                 status = new Status(unitCode, "Enemy1", 100, 10, 1.5f, 2f, 1.5f, 7f);

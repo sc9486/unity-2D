@@ -2641,7 +2641,7 @@ PrefabInstance:
     - target: {fileID: 8202995443122684391, guid: 6877fb649746c674d8fbbcf60d41892b,
         type: 3}
       propertyPath: m_Name
-      value: sword_man
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8202995443122684391, guid: 6877fb649746c674d8fbbcf60d41892b,
         type: 3}
@@ -25262,7 +25262,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035183787, y: 0.17216551}
+  m_Offset: {x: 0.060507104, y: 0.23040009}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -25273,7 +25273,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54270315, y: 1.6384003}
+  m_Size: {x: 1.0836625, y: 2.512227}
   m_EdgeRadius: 0
 --- !u!1 &1320250711
 GameObject:
@@ -26012,6 +26012,11 @@ PrefabInstance:
       objectReference: {fileID: 1676339039}
     - target: {fileID: 6387735639373335032, guid: 7c6ae8e02d74f9a42882039cade18c73,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 697540508}
+    - target: {fileID: 6387735639373335032, guid: 7c6ae8e02d74f9a42882039cade18c73,
+        type: 3}
       propertyPath: sword_man
       value: 
       objectReference: {fileID: 697540508}
@@ -26069,6 +26074,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387735639373335035, guid: 7c6ae8e02d74f9a42882039cade18c73,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.8060341
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387735639373335035, guid: 7c6ae8e02d74f9a42882039cade18c73,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.6645749
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387735639373335035, guid: 7c6ae8e02d74f9a42882039cade18c73,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.015264511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387735639373335035, guid: 7c6ae8e02d74f9a42882039cade18c73,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2783147
       objectReference: {fileID: 0}
     - target: {fileID: 6387735639373335036, guid: 7c6ae8e02d74f9a42882039cade18c73,
         type: 3}
@@ -26156,9 +26181,24 @@ PrefabInstance:
       objectReference: {fileID: 1676339039}
     - target: {fileID: 868162469724607973, guid: 50798d8485b623d4e945a4b191fd7b07,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 697540508}
+    - target: {fileID: 868162469724607973, guid: 50798d8485b623d4e945a4b191fd7b07,
+        type: 3}
       propertyPath: sword_man
       value: 
       objectReference: {fileID: 697540508}
+    - target: {fileID: 868162469724607974, guid: 50798d8485b623d4e945a4b191fd7b07,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6211948
+      objectReference: {fileID: 0}
+    - target: {fileID: 868162469724607974, guid: 50798d8485b623d4e945a4b191fd7b07,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.031834602
+      objectReference: {fileID: 0}
     - target: {fileID: 868162469764357146, guid: 50798d8485b623d4e945a4b191fd7b07,
         type: 3}
       propertyPath: m_Controller

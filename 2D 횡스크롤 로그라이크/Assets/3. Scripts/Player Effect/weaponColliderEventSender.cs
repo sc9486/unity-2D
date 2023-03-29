@@ -8,7 +8,7 @@ public class weaponColliderEventSender : MonoBehaviour
     public enum Type
     {
         Mons,
-        Player,
+        player,
         Soldier
 
     }
@@ -24,10 +24,10 @@ public class weaponColliderEventSender : MonoBehaviour
 
     }
 
-    public Type CharacterType = Type.Player;
+    public Type CharacterType = Type.player;
 
 
-    public PlayerController m_PlayerRoot;
+    public playerController m_playerRoot;
     public AttackState m_AttackState = AttackState.Default;
 
     public List<GameObject> HittedObjectList = new List<GameObject>();
@@ -40,8 +40,8 @@ public class weaponColliderEventSender : MonoBehaviour
         {
             case Type.Mons:      
                 break;
-            case Type.Player:
-                m_PlayerRoot = this.transform.root.transform.GetComponent<PlayerController>();
+            case Type.player:
+                m_playerRoot = this.transform.root.transform.GetComponent<playerController>();
                 break;
      
         }
@@ -90,24 +90,24 @@ public class weaponColliderEventSender : MonoBehaviour
 
 
                 break;
-            case Type.Player:
+            case Type.player:
 
 
                 switch (m_AttackState)
                 {
                     case AttackState.Default:
-                        m_PlayerRoot.DefaulAttack_Collider(other.gameObject);
+                        m_playerRoot.DefaulAttack_Collider(other.gameObject);
                         break;
                     case AttackState.Skill1:
                         break;
                     case AttackState.Skill2:
-                        m_PlayerRoot.Skill_2Attack_Collider(other.gameObject);
+                        m_playerRoot.Skill_2Attack_Collider(other.gameObject);
                         break;
                     case AttackState.Skill3:
-                        m_PlayerRoot.Skill_3Attack_Collider(other.gameObject);
+                        m_playerRoot.Skill_3Attack_Collider(other.gameObject);
                         break;
                     case AttackState.Skill4:
-                        m_PlayerRoot.Skill_4Attack_Collider(other.gameObject);
+                        m_playerRoot.Skill_4Attack_Collider(other.gameObject);
                         break;
 
                 }

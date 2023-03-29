@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Berserker : PlayerController
+public class Berserker : playerController
 {
     public Status status;
 
@@ -16,7 +16,7 @@ public class Berserker : PlayerController
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
 
         status = new Status();
-        status = status.SetUnitStatus(UnitCode.swordman);
+        status = status.SetUnitStatus(UnitCode.player);
 
     }
 
