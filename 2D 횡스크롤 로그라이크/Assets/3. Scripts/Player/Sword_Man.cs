@@ -68,14 +68,14 @@ public class Sword_Man : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             transform.localScale = new Vector3(1, 1, 1);
-            transform.position += Vector3.left * Time.deltaTime * _speed;
+            transform.transform.Translate(new Vector3(-transform.localScale.x * 25f * Time.deltaTime, 0, 0));
             animator.SetBool("moving", true);
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            transform.position += Vector3.right * Time.deltaTime * _speed;
+            transform.transform.Translate(new Vector3(-transform.localScale.x * 25f * Time.deltaTime, 0, 0));
             animator.SetBool("moving", true);
         }
         else animator.SetBool("moving", false);
@@ -145,6 +145,11 @@ public class Sword_Man : MonoBehaviour
     void StingTrue()
     {
         sting = true;
+    }
+
+    void StingFalse()
+    {
+        sting = false;
     }
     public void SetAttackSpeed(float speed)
     {
