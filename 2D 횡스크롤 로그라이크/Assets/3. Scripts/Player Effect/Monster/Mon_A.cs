@@ -315,7 +315,6 @@ public class Mon_A :Mon_Bass
             if (TimeTic > DieTime)
             {
                 TimeTic = 0;
-                Demo_GM.Gm.MonsterList.Remove(Owner.gameObject);
                 Destroy(Owner.gameObject);
             }
 

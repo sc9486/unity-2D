@@ -18,7 +18,7 @@ public abstract class PlayerController :MonoBehaviour
 
     [Header("[Setting]")]
     public float MoveSpeed = 6;
-    public int JumpCount = 2;
+    public int JumpCount = 100;
     public float jumpForce = 15f;
 
     public GameObject BloodPrefab;
@@ -40,13 +40,13 @@ public abstract class PlayerController :MonoBehaviour
         isGrounded = false;
 
 
-        currentJumpCount++;
     }
 
     protected void DownJump()
     {
         if (!isGrounded)
             return;
+
 
         if (!Is_DownJump_GroundCheck)
         {
@@ -70,6 +70,7 @@ public abstract class PlayerController :MonoBehaviour
 
     //////바닥 체크 레이케스트 
     Vector2 RayDir = Vector2.down;
+
 
     float PretmpY;
     float GroundCheckUpdateTic = 0;
@@ -119,32 +120,35 @@ public abstract class PlayerController :MonoBehaviour
 
             }
 
+
             PretmpY = transform.position.y;
 
         }
+
+
+
+
     }
 
 
 
     protected abstract void LandingEvent();
-    
+
+    public abstract void Damaged(float m_damged, Vector2 dir);
+
     public virtual void DefaulAttack_Collider(GameObject obj) { }
-    public virtual void Skill_1Attack_Collider(GameObject obj) { }
     public virtual void Skill_2Attack_Collider(GameObject obj) { }
     public virtual void Skill_3Attack_Collider(GameObject obj) { }
     public virtual void Skill_4Attack_Collider(GameObject obj) { }
-
-    public virtual void SkillAttack_Anim_1_Enter() { }
-    public virtual void SkillAttack_Anim_1_Exit() { }
 
     protected bool Is_Skill_2_Attack = false;
     public virtual void SkillAttack_Anim_2_Enter() { }
     public virtual void SkillAttack_Anim_2_Exit() { }
 
-
     public virtual void SkillAttack_Anim_3_Enter() { }
     public virtual void SkillAttack_Anim_3_Exit() { }
 
     public virtual void Anim_Die_Enter() { }
+
 
 }

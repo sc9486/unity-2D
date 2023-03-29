@@ -115,7 +115,6 @@ public class weaponColliderEventSender : MonoBehaviour
                         m_PlayerRoot.DefaulAttack_Collider(other.gameObject);
                         break;
                     case AttackState.Skill1:
-                        m_PlayerRoot.Skill_1Attack_Collider(other.gameObject);
                         break;
                     case AttackState.Skill2:
                         m_PlayerRoot.Skill_2Attack_Collider(other.gameObject);

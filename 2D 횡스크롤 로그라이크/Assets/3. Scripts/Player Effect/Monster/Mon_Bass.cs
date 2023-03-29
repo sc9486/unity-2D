@@ -95,8 +95,6 @@ public abstract class Mon_Bass : MonoBehaviour {
 
 
         m_HP = Hp;
-
-        Demo_GM.Gm.MonsterList.Add(this.gameObject);
     }
 
     
@@ -270,14 +268,7 @@ public abstract class Mon_Bass : MonoBehaviour {
             return;
         if (obj.CompareTag("Player") )
         {
-            Physics2D.IgnoreCollision(m_collider2d, Demo_GM.Gm.CurrentPlayerObj.GetComponent<CapsuleCollider2D>());
-            for (int i = 0; i < Demo_GM.Gm.MonsterList.Count; i++)
-            {
-                Physics2D.IgnoreCollision(m_collider2d, Demo_GM.Gm.MonsterList[i].GetComponent<CapsuleCollider2D>());
-                //
-              
-
-            }
+            
             LayerIgnoreChecker = true;
             Debug.Log("Ignore the collider in the script (because you lose layer information when uploading the unity pakage).Please Users set layers and ignore them to Edit->projectSettings->physics2D :)");
         }

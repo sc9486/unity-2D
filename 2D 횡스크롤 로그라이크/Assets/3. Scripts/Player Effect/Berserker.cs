@@ -10,37 +10,25 @@ public class Berserker : PlayerController
 
     private void Start()
     {
-
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
-  
-
     }
 
 
 
     private void Update()
     {
-
-
-
         checkInput();
 
         if (m_rigidbody.velocity.magnitude > 30)
         {
             m_rigidbody.velocity = new Vector2(m_rigidbody.velocity.x - 0.1f, m_rigidbody.velocity.y - 0.1f);
-
         }
-
-
-
     }
 
     public void checkInput()
     {
-
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             m_Anim.Play("Demo_Skill_1");
@@ -59,60 +47,35 @@ public class Berserker : PlayerController
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             m_Anim.Play("Demo_Die");
-
-           
-
         }
-
-      
-
-
-
 
             if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Skill_2"))
         {
-            //  m_rigidbody.AddForce( ForceMode2D.Impulse);
             if (Is_Skill_2_Attack)
             {
-                //   m_rigidbody.AddForce(-transform.right * transform.localScale.x * 1f, ForceMode2D.Impulse);
-
                 transform.transform.Translate(new Vector3(-transform.localScale.x * 25f * Time.deltaTime, 0, 0));
-
             }
             else
             {
                 if (m_MoveX < 0)
                 {
-
                     if (transform.localScale.x > 0)
                         transform.transform.Translate(new Vector3(m_MoveX * MoveSpeed * Time.deltaTime, 0, 0));
-
                 }
 
                 else if (m_MoveX > 0)
                 {
-
                     if (transform.localScale.x < 0)
                         transform.transform.Translate(new Vector3(m_MoveX * MoveSpeed * Time.deltaTime, 0, 0));
-
                 }
             }
-
-
         }
-
-
-
-
 
         if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Skill_1") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Skill_2")
             || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Skill_3"))
-        {
-          
+        {  
             return;
         }
-
-
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
@@ -123,20 +86,14 @@ public class Berserker : PlayerController
 
         if (Input.GetKeyDown(KeyCode.S))  //아래 버튼 눌렀을때. 
         {
-
             IsSit = true;
             m_Anim.Play("Demo_Sit");
-
-
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
-
             m_Anim.Play("Demo_Idle");
             IsSit = false;
-
         }
-
 
         // sit나 die일때 애니메이션이 돌때는 다른 애니메이션이 되지 않게 한다. 
         if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Sit") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Die"))
@@ -148,48 +105,37 @@ public class Berserker : PlayerController
                     DownJump();
                 }
             }
-
             return;
         }
 
-
         m_MoveX = Input.GetAxis("Horizontal");
 
-
-   
         GroundCheckUpdate();
-
 
         if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Demo_Attack"))
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
-
-
                 m_Anim.Play("Demo_Attack");
             }
             else
             {
-
                 if (m_MoveX == 0)
                 {
                     if (!OnceJumpRayCheck)
                         m_Anim.Play("Demo_Idle");
-
                 }
                 else
                 {
-
                     m_Anim.Play("Demo_Run");
                 }
-
             }
         }
 
 
        
 
-     
+  
 
         // 기타 이동 인풋.
 
@@ -304,7 +250,12 @@ public class Berserker : PlayerController
 
     }
 
+    public override void Damaged(float m_damged, Vector2 dir)
+    {
 
+        // 피 달게 한다. 
+
+    }
 
     public override void DefaulAttack_Collider(GameObject obj) {
 
@@ -322,10 +273,6 @@ public class Berserker : PlayerController
 
     }
 
-
-    public override void Skill_1Attack_Collider(GameObject obj) {
-
-    }
     public override void Skill_2Attack_Collider(GameObject obj) {
 
         if (obj.CompareTag("Monster"))
@@ -349,25 +296,6 @@ public class Berserker : PlayerController
     public GameObject Skill2Prefab;
     public GameObject Skill3Prefab;
 
-    public override void SkillAttack_Anim_1_Enter()
-    {
-
-
-        for (int i = 0; i < Demo_GM.Gm.MonsterList.Count; i++)
-        {
-
-            GameObject tmpobj = Instantiate(Skill1Prefab, Demo_GM.Gm.MonsterList[i].transform.position, Quaternion.identity);
-            tmpobj.GetComponent<Skill_1>().Fire(5);
-            Demo_GM.Gm.MonsterList[i].GetComponent<Mon_Bass>().Damaged(5, Vector2.zero, 0.1f);
-
-
-        }
-
-     
-
-
-    }
-
     public override void SkillAttack_Anim_2_Enter()
     {
    
@@ -375,7 +303,7 @@ public class Berserker : PlayerController
         GameObject tmpobj = Instantiate(Skill2Prefab, transform.position, Quaternion.identity);
         tmpobj.transform.localScale = new Vector3(-1*transform.localScale.x, 1, 1);
         tmpobj.transform.SetParent(this.transform);
-        tmpobj.transform.localPosition= new Vector3(-1.37f, -0.179f, 1);
+        tmpobj.transform.localPosition= new Vector3(-1.37f, 0.179f, 1);
         //Debug.Log("transform.localScale.x:" + transform.localScale.x);
 
 
@@ -403,7 +331,6 @@ public class Berserker : PlayerController
 
     public override void Anim_Die_Enter()
     {
-        Instantiate(BloodPrefab,this.transform.localPosition,Quaternion.identity)
-            ;
+        Instantiate(BloodPrefab, this.transform.localPosition, Quaternion.identity);       
     }
 }

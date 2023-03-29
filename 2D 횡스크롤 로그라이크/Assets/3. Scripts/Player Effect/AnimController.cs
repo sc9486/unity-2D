@@ -11,16 +11,6 @@ public class AnimController : MonoBehaviour
         m_PlayerRoot = this.transform.root.transform.GetComponent<PlayerController>();
     }
 
-    public void Anim_AttackSkill_1_Enter()
-    {
-        m_PlayerRoot.SkillAttack_Anim_1_Enter();
-    }
-
-    public void Anim_AttackSkill_1_Exit()
-    {
-        m_PlayerRoot.SkillAttack_Anim_1_Exit();
-    }
-
     public void Anim_AttackSkill_2_Enter()
     {
         m_PlayerRoot.SkillAttack_Anim_2_Enter();
