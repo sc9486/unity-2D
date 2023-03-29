@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class weaponColliderEventSender : MonoBehaviour {
+public class weaponColliderEventSender : MonoBehaviour
+{
     public enum Type
     {
         Mons,
@@ -22,6 +23,7 @@ public class weaponColliderEventSender : MonoBehaviour {
 
 
     }
+
     public Type CharacterType = Type.Player;
 
 

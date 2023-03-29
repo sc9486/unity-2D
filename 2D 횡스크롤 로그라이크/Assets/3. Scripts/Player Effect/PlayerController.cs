@@ -23,17 +23,10 @@ public abstract class PlayerController :MonoBehaviour
 
     public GameObject BloodPrefab;
 
-
-
-
     protected void Filp(bool bLeft)
     {
-
-
         transform.localScale = new Vector3(bLeft ? 1 : -1, 1, 1);
-
     }
-
 
     protected void prefromJump()
     {
@@ -48,14 +41,12 @@ public abstract class PlayerController :MonoBehaviour
 
 
         currentJumpCount++;
-
     }
 
     protected void DownJump()
     {
         if (!isGrounded)
             return;
-
 
         if (!Is_DownJump_GroundCheck)
         {
@@ -67,10 +58,7 @@ public abstract class PlayerController :MonoBehaviour
             m_CapsulleCollider.enabled = false;
 
             StartCoroutine(GroundCapsulleColliderTimmerFuc());
-
         }
-
-
     }
 
     IEnumerator GroundCapsulleColliderTimmerFuc()
@@ -82,7 +70,6 @@ public abstract class PlayerController :MonoBehaviour
 
     //////바닥 체크 레이케스트 
     Vector2 RayDir = Vector2.down;
-
 
     float PretmpY;
     float GroundCheckUpdateTic = 0;
@@ -132,20 +119,14 @@ public abstract class PlayerController :MonoBehaviour
 
             }
 
-
             PretmpY = transform.position.y;
 
         }
-
-
-
-
     }
 
 
 
     protected abstract void LandingEvent();
-
     
     public virtual void DefaulAttack_Collider(GameObject obj) { }
     public virtual void Skill_1Attack_Collider(GameObject obj) { }
@@ -165,6 +146,5 @@ public abstract class PlayerController :MonoBehaviour
     public virtual void SkillAttack_Anim_3_Exit() { }
 
     public virtual void Anim_Die_Enter() { }
-
 
 }
